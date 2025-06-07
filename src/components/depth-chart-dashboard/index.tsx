@@ -1,8 +1,9 @@
-import { Box, Table, VisuallyHidden } from '@chakra-ui/react';
+import { Box, Flex, Table, VisuallyHidden } from '@chakra-ui/react';
 import { useState } from 'react';
 
 import { useAppSelector } from '../../store/hook';
 
+import { AddPlayer } from './add-player';
 import { SportFilter } from './sport-filter';
 
 export default function DepthChartDashboard() {
@@ -12,7 +13,12 @@ export default function DepthChartDashboard() {
 
   return (
     <Box>
-      <SportFilter onChange={setSelectedSport} />
+      <Flex>
+        <SportFilter onChange={setSelectedSport} />
+
+        <AddPlayer />
+      </Flex>
+
       {sports.map((sport) => (
         <Box
           key={`chart-${sport.name}`}
