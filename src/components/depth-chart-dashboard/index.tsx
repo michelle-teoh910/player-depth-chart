@@ -1,14 +1,27 @@
 import { Box, Table, VisuallyHidden } from '@chakra-ui/react';
+import { useState } from 'react';
 
 import { useAppSelector } from '../../store/hook';
 
+import { SportFilter } from './sport-filter';
+
 export default function DepthChartDashboard() {
+  const [selectedSport, setSelectedSport] = useState<string[]>([]);
+
   const sports = useAppSelector((state) => state.sports.sports);
 
   return (
     <Box>
+      <SportFilter onChange={setSelectedSport} />
       {sports.map((sport) => (
-        <Box key={`chart-${sport.name}`}>
+        <Box
+          key={`chart-${sport.name}`}
+          display={
+            selectedSport.length === 0 || selectedSport.includes(sport.name)
+              ? 'block'
+              : 'none'
+          }
+        >
           <h2>{sport.name}</h2>
           <Table.Root striped>
             <Table.Header>
