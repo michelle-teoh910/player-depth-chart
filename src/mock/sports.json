@@ -1,0 +1,82 @@
+{
+  "sports": [
+    {
+      "name": "NFL",
+      "position": [
+        {
+          "name": "QB",
+          "spots": ["player 1", "player 2", "player 3"]
+        },
+        {
+          "name": "WR",
+          "spots": ["player 1", "player 2", "player 3"]
+        },
+        {
+          "name": "RB",
+          "spots": ["player 1", "player 2", "player 3"]
+        },
+        {
+          "name": "TE",
+          "spots": ["player 1", "player 2", "player 3"]
+        },
+        {
+          "name": "K",
+          "spots": ["player 1", "player 2", "player 3"]
+        },
+        {
+          "name": "P",
+          "spots": ["player 1", "player 2", "player 3"]
+        },
+        {
+          "name": "KR",
+          "spots": ["player 1", "player 2", "player 3"]
+        },
+        {
+          "name": "PR",
+          "spots": ["player 1", "player 2", "player 3"]
+        }
+      ]
+    },
+    {
+      "name": "Soccer",
+      "position": [
+        {
+          "name": "GK",
+          "spots": ["player 1", "player 2", "player 3"]
+        },
+        {
+          "name": "RB",
+          "spots": ["player 1", "player 2", "player 3"]
+        },
+        {
+          "name": "LB",
+          "spots": ["player 1", "player 2", "player 3"]
+        },
+        {
+          "name": "CDM",
+          "spots": ["player 1", "player 2", "player 3"]
+        },
+        {
+          "name": "CAM",
+          "spots": ["player 1", "player 2", "player 3"]
+        },
+        {
+          "name": "RW",
+          "spots": ["player 1", "player 2", "player 3"]
+        },
+        {
+          "name": "LW",
+          "spots": ["player 1", "player 2", "player 3"]
+        },
+        {
+          "name": "SS",
+          "spots": ["player 1", "player 2", "player 3"]
+        },
+        {
+          "name": "ST",
+          "spots": ["player 1", "player 2", "player 3"]
+        }
+      ]
+    }
+  ]
+}
