@@ -1,7 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
 
+import sportReducer from './slices/sports';
+
 export const store = configureStore({
-  reducer: {},
+  reducer: { sports: sportReducer },
 });
 
 export type RootState = ReturnType<typeof store.getState>;
