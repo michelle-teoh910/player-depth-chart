@@ -56,7 +56,7 @@ const sportsSlice = createSlice({
         playerName
       );
 
-      if (position.spots.length > 4) {
+      if (position.spots.length > MAX_PLAYERS) {
         position.spots = position.spots.slice(0, MAX_PLAYERS);
       }
     },

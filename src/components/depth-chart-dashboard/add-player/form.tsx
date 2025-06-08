@@ -13,6 +13,8 @@ import DropdownSelect from '../../ui/select';
 import { useAppDispatch, useAppSelector } from '../../../store/hook';
 import { addPlayer } from '../../../store/slices/sports';
 
+import { LINEUP_SPOTS } from '../../../utility/constants';
+
 interface FormValues {
   playerName: string;
   position: string;
@@ -61,8 +63,6 @@ export function AddPlayerForm({
   });
 
   const onSubmit = handleSubmit((data) => {
-    console.log(data);
-
     dispatch(
       addPlayer({
         sportName: data.sport,
@@ -158,10 +158,10 @@ export function AddPlayerForm({
 }
 
 const spotOptions = createListCollection({
-  items: [
-    { label: 'Starter', value: '0' },
-    { label: 'Second', value: '1' },
-    { label: 'Third', value: '2' },
-    { label: 'Forth', value: '3' },
-  ],
+  items: LINEUP_SPOTS.map((spot, index) => {
+    return {
+      label: spot,
+      value: index,
+    };
+  }),
 });
