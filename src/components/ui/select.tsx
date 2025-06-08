@@ -4,12 +4,7 @@ import { type RefObject } from 'react';
 
 type Option = { label: string; value: string };
 
-export default function DropdownSelect({
-  options,
-  parentRef,
-  placeholder = '',
-  ...rest
-}: Omit<SelectRootProps, 'collection'> & {
+type DropdownSelectProps = Omit<SelectRootProps, 'collection'> & {
   options: { items: Option[] };
   /**
    * Use this only when the dropdown is rendered inside a dialog.
@@ -18,10 +13,18 @@ export default function DropdownSelect({
   parentRef?: RefObject<HTMLElement | null>;
   placeholder?: string;
   value: string[];
-}) {
+};
+
+export default function DropdownSelect({
+  options,
+  parentRef,
+  placeholder = '',
+  ...rest
+}: DropdownSelectProps) {
   return (
     <Select.Root collection={options} {...rest}>
       <Select.HiddenSelect />
+
       <Select.Control>
         <Select.Trigger>
           <Select.ValueText placeholder={placeholder} />
@@ -30,6 +33,7 @@ export default function DropdownSelect({
           <Select.Indicator />
         </Select.IndicatorGroup>
       </Select.Control>
+
       <Portal container={parentRef}>
         <Select.Positioner>
           <Select.Content>
