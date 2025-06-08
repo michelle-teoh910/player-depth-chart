@@ -90,6 +90,7 @@ export function AddPlayerForm({
           <Controller
             control={control}
             name="sport"
+            rules={{ required: 'Sport type is required' }}
             render={({ field }) => (
               <DropdownSelect
                 defaultValue={[sportOptions.items[0].value]}
@@ -117,6 +118,7 @@ export function AddPlayerForm({
             <Controller
               control={control}
               name="position"
+              rules={{ required: 'Position is required' }}
               render={({ field }) => (
                 <DropdownSelect
                   name={field.name}
@@ -142,7 +144,12 @@ export function AddPlayerForm({
               label="Player name"
               required
             >
-              <Input {...register('playerName')} />
+              <Controller
+                control={control}
+                name="playerName"
+                rules={{ required: 'Player name is required' }}
+                render={({ field }) => <Input {...field} />}
+              />
             </FormControl>
 
             <FormControl
