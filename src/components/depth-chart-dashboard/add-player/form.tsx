@@ -34,7 +34,6 @@ export function AddPlayerForm({
   const form = useForm<FormValues>();
 
   const {
-    register,
     handleSubmit,
     formState: { errors },
     control,
