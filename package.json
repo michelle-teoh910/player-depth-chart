@@ -31,7 +31,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "player-depth-chart -d build"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
