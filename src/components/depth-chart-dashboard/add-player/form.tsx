@@ -1,17 +1,13 @@
-import {
-  Button,
-  createListCollection,
-  Field,
-  Input,
-  Stack,
-} from '@chakra-ui/react';
+import { Button, createListCollection, Input, Stack } from '@chakra-ui/react';
 import { useTransition, type RefObject } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
 import { useAppDispatch, useAppSelector } from '../../../store/hook';
 import { addPlayer } from '../../../store/slices/sports';
 
+import FormControl from '../../ui/form-control';
 import DropdownSelect from '../../ui/select';
+
 import { LINEUP_SPOTS } from '../../../utility/constants';
 
 interface FormValues {
@@ -85,8 +81,12 @@ export function AddPlayerForm({
   return (
     <form onSubmit={onSubmit}>
       <Stack gap="4" align="flex-start" maxW="sm">
-        <Field.Root invalid={!!errors.sport}>
-          <Field.Label>Sports</Field.Label>
+        <FormControl
+          errorMessage={errors.sport?.message}
+          invalid={!!errors.sport}
+          label="Sport"
+          required
+        >
           <Controller
             control={control}
             name="sport"
@@ -105,12 +105,15 @@ export function AddPlayerForm({
               />
             )}
           />
-          <Field.ErrorText>{errors.sport?.message}</Field.ErrorText>
-        </Field.Root>
+        </FormControl>
 
         {positionOptions.items.length > 0 && (
-          <Field.Root invalid={!!errors.position}>
-            <Field.Label>Position</Field.Label>
+          <FormControl
+            errorMessage={errors.position?.message}
+            invalid={!!errors.position}
+            label="Position"
+            required
+          >
             <Controller
               control={control}
               name="position"
@@ -128,20 +131,26 @@ export function AddPlayerForm({
                 />
               )}
             />
-            <Field.ErrorText>{errors.position?.message}</Field.ErrorText>
-          </Field.Root>
+          </FormControl>
         )}
 
         {selectedPosition && (
           <>
-            <Field.Root invalid={!!errors.playerName}>
-              <Field.Label>Player Name</Field.Label>
+            <FormControl
+              errorMessage={errors.playerName?.message}
+              invalid={!!errors.playerName}
+              label="Player name"
+              required
+            >
               <Input {...register('playerName')} />
-              <Field.ErrorText>{errors.playerName?.message}</Field.ErrorText>
-            </Field.Root>
+            </FormControl>
 
-            <Field.Root invalid={!!errors.spot}>
-              <Field.Label>Spot</Field.Label>
+            <FormControl
+              errorMessage={errors.spot?.message}
+              invalid={!!errors.spot}
+              label="Spot"
+              optional
+            >
               <Controller
                 control={control}
                 name="spot"
@@ -159,8 +168,7 @@ export function AddPlayerForm({
                   />
                 )}
               />
-              <Field.ErrorText>{errors.position?.message}</Field.ErrorText>
-            </Field.Root>
+            </FormControl>
           </>
         )}
 
