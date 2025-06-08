@@ -5,35 +5,50 @@
       "position": [
         {
           "name": "QB",
-          "spots": ["player 1", "player 2", "player 3"]
+          "spots": [
+            "Patrick Mahomes",
+            "Josh Allen",
+            "Joe Burrow",
+            "Justin Herbert"
+          ]
         },
         {
           "name": "WR",
-          "spots": ["player 1", "player 2", "player 3"]
+          "spots": ["Tyreek Hill", "Stefon Diggs", "Davante Adams"]
         },
         {
           "name": "RB",
-          "spots": ["player 1", "player 2", "player 3"]
+          "spots": ["Christian McCaffrey", "Derrick Henry"]
         },
         {
           "name": "TE",
-          "spots": ["player 1", "player 2", "player 3"]
+          "spots": [
+            "Travis Kelce",
+            "George Kittle",
+            "Mark Andrews",
+            "Dallas Goedert"
+          ]
         },
         {
           "name": "K",
-          "spots": ["player 1", "player 2", "player 3"]
+          "spots": ["Justin Tucker", "Harrison Butker"]
         },
         {
           "name": "P",
-          "spots": ["player 1", "player 2", "player 3"]
+          "spots": ["Johnny Hekker", "Logan Cooke", "Jake Bailey"]
         },
         {
           "name": "KR",
-          "spots": ["player 1", "player 2", "player 3"]
+          "spots": ["Cordarrelle Patterson", "Devin Duvernay"]
         },
         {
           "name": "PR",
-          "spots": ["player 1", "player 2", "player 3"]
+          "spots": [
+            "Gunner Olszewski",
+            "Braxton Berrios",
+            "Jakeem Grant",
+            "Andre Roberts"
+          ]
         }
       ]
     },
@@ -42,39 +57,44 @@
       "position": [
         {
           "name": "GK",
-          "spots": ["player 1", "player 2", "player 3"]
+          "spots": ["Alisson Becker", "Thibaut Courtois"]
         },
         {
           "name": "RB",
-          "spots": ["player 1", "player 2", "player 3"]
+          "spots": ["Trent Alexander-Arnold", "Kyle Walker", "Dani Carvajal"]
         },
         {
           "name": "LB",
-          "spots": ["player 1", "player 2", "player 3"]
+          "spots": ["Andrew Robertson", "Alphonso Davies"]
         },
         {
           "name": "CDM",
-          "spots": ["player 1", "player 2", "player 3"]
+          "spots": ["Casemiro", "N'Golo Kanté", "Joshua Kimmich", "Rodri"]
         },
         {
           "name": "CAM",
-          "spots": ["player 1", "player 2", "player 3"]
+          "spots": ["Kevin De Bruyne", "Bruno Fernandes"]
         },
         {
           "name": "RW",
-          "spots": ["player 1", "player 2", "player 3"]
+          "spots": ["Lionel Messi", "Mohamed Salah", "Riyad Mahrez"]
         },
         {
           "name": "LW",
-          "spots": ["player 1", "player 2", "player 3"]
+          "spots": ["Vinícius Jr.", "Neymar Jr."]
         },
         {
           "name": "SS",
-          "spots": ["player 1", "player 2", "player 3"]
+          "spots": ["Paulo Dybala", "Antoine Griezmann"]
         },
         {
           "name": "ST",
-          "spots": ["player 1", "player 2", "player 3"]
+          "spots": [
+            "Erling Haaland",
+            "Harry Kane",
+            "Robert Lewandowski",
+            "Kylian Mbappé"
+          ]
         }
       ]
     }
