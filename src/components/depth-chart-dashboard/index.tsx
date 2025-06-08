@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useAppSelector } from '../../store/hook';
 
 import { AddPlayer } from './add-player';
+import { RemovePlayer } from './remove-player';
 import { SportFilter } from './sport-filter';
 
 export default function DepthChartDashboard() {
@@ -17,6 +18,7 @@ export default function DepthChartDashboard() {
         <SportFilter onChange={setSelectedSport} />
 
         <AddPlayer />
+        <RemovePlayer />
       </Flex>
 
       {sports.map((sport) => (

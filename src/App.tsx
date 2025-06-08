@@ -8,6 +8,8 @@ import {
 import logo from './logo.svg';
 import './App.css';
 
+import DepthChartDashboard from './components/depth-chart-dashboard';
+
 const config = defineConfig({
   theme: {
     tokens: {
@@ -36,6 +38,8 @@ function App() {
             Learn React
           </a>
         </header>
+
+        <DepthChartDashboard />
       </div>
     </ChakraProvider>
   );
