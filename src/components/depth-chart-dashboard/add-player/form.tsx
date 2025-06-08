@@ -93,7 +93,6 @@ export function AddPlayerForm({
             rules={{ required: 'Sport type is required' }}
             render={({ field }) => (
               <DropdownSelect
-                defaultValue={[sportOptions.items[0].value]}
                 name={field.name}
                 options={sportOptions}
                 parentRef={contentRef}
