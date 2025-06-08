@@ -6,6 +6,8 @@ import {
 } from '@chakra-ui/react';
 
 import { useRef, useState } from 'react';
+import { MdGroupRemove } from 'react-icons/md';
+
 import { RemovePlayerForm } from './form';
 
 export function RemovePlayer() {
@@ -21,7 +23,9 @@ export function RemovePlayer() {
         onOpenChange={({ open }: { open: boolean }) => setOpen(open)}
       >
         <PrimitiveDialog.Trigger asChild>
-          <Button variant="outline">Remove Player</Button>
+          <Button variant="outline" size={{ base: 'sm', md: 'md' }}>
+            Remove Player <MdGroupRemove />
+          </Button>
         </PrimitiveDialog.Trigger>
         <Portal>
           <PrimitiveDialog.Backdrop />

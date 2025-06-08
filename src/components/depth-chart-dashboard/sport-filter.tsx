@@ -23,7 +23,7 @@ export function SportFilter({
   return (
     <Select.Root
       collection={sportOptions}
-      size="sm"
+      size={{ base: 'sm', md: 'md' }}
       width={320}
       onValueChange={(option: { value: string[] }) => onChange(option.value)}
     >

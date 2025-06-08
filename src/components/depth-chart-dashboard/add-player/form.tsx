@@ -198,7 +198,7 @@ const spotOptions = createListCollection({
   items: LINEUP_SPOTS.map((spot, index) => {
     return {
       label: spot,
-      value: index,
+      value: `${index}`,
     };
   }),
 });

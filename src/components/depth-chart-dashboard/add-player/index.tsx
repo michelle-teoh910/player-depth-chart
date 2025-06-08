@@ -6,6 +6,7 @@ import {
 } from '@chakra-ui/react';
 
 import { useRef, useState } from 'react';
+import { MdGroupAdd } from 'react-icons/md';
 
 import { AddPlayerForm } from './form';
 
@@ -22,7 +23,9 @@ export function AddPlayer() {
         onOpenChange={({ open }: { open: boolean }) => setOpen(open)}
       >
         <PrimitiveDialog.Trigger asChild>
-          <Button variant="outline">Add Player</Button>
+          <Button variant="solid" size={{ base: 'sm', md: 'md' }}>
+            Add Player <MdGroupAdd />
+          </Button>
         </PrimitiveDialog.Trigger>
         <Portal>
           <PrimitiveDialog.Backdrop />
