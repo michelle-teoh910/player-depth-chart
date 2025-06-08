@@ -62,8 +62,28 @@ const sportsSlice = createSlice({
         position.spots = position.spots.slice(0, MAX_PLAYERS);
       }
     },
+    removePlayer: (
+      state,
+      action: PayloadAction<{
+        sportName: string;
+        positionName: string;
+        spot?: string;
+      }>
+    ) => {
+      const { sportName, positionName, spot: spotIndex } = action.payload;
+
+      const sport = state.sports.find((sport) => sport.name === sportName);
+
+      if (!sport) return;
+
+      const position = sport.position.find((pos) => pos.name === positionName);
+
+      if (!position) return;
+
+      position.spots.splice(Number(spotIndex), 1);
+    },
   },
 });
 
-export const { addPlayer } = sportsSlice.actions;
+export const { addPlayer, removePlayer } = sportsSlice.actions;
 export default sportsSlice.reducer;
