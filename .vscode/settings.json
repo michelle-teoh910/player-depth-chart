@@ -1,0 +1,10 @@
+{
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "workbench.editor.customLabels.patterns": {
+    "**/src/components/**/*.ts": "${filename} - (Components)",
+    "**/src/components/ui/**/*.ts": "${filename} - (UI Components)",
+    "**/src/mock/**/*.ts": "${filename} - (Mock)",
+    "**/src/store/**/*.ts": "${filename} - (Store)",
+    "**/src/utility/**/*.ts": "${filename} - (Utility)"
+  }
+}
