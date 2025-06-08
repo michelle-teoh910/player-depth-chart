@@ -45,6 +45,7 @@ export function AddPlayerForm({
   } = form;
 
   const selectedSport = form.watch('sport');
+  const selectedPosition = form.watch('position');
 
   const sportOptions: { items: Option[] } = createListCollection({
     items:
@@ -131,33 +132,37 @@ export function AddPlayerForm({
           </Field.Root>
         )}
 
-        <Field.Root invalid={!!errors.playerName}>
-          <Field.Label>Player Name</Field.Label>
-          <Input {...register('playerName')} />
-          <Field.ErrorText>{errors.playerName?.message}</Field.ErrorText>
-        </Field.Root>
+        {selectedPosition && (
+          <>
+            <Field.Root invalid={!!errors.playerName}>
+              <Field.Label>Player Name</Field.Label>
+              <Input {...register('playerName')} />
+              <Field.ErrorText>{errors.playerName?.message}</Field.ErrorText>
+            </Field.Root>
 
-        <Field.Root invalid={!!errors.spot}>
-          <Field.Label>Spot</Field.Label>
-          <Controller
-            control={control}
-            name="spot"
-            render={({ field }) => (
-              <DropdownSelect
-                name={field.name}
-                value={[field.value]}
-                options={spotOptions}
-                placeholder="Select a spot"
-                parentRef={contentRef}
-                onInteractOutside={() => field.onBlur()}
-                onValueChange={(option: { value: number[] }) =>
-                  field.onChange(option.value[0])
-                }
+            <Field.Root invalid={!!errors.spot}>
+              <Field.Label>Spot</Field.Label>
+              <Controller
+                control={control}
+                name="spot"
+                render={({ field }) => (
+                  <DropdownSelect
+                    name={field.name}
+                    value={[field.value]}
+                    options={spotOptions}
+                    placeholder="Select a spot"
+                    parentRef={contentRef}
+                    onInteractOutside={() => field.onBlur()}
+                    onValueChange={(option: { value: number[] }) =>
+                      field.onChange(option.value[0])
+                    }
+                  />
+                )}
               />
-            )}
-          />
-          <Field.ErrorText>{errors.position?.message}</Field.ErrorText>
-        </Field.Root>
+              <Field.ErrorText>{errors.position?.message}</Field.ErrorText>
+            </Field.Root>
+          </>
+        )}
 
         <Button type="submit" disabled={isPending} loading={isPending}>
           Add Player
