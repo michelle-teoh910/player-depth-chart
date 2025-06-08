@@ -34,7 +34,10 @@ export function AddPlayer() {
                 </PrimitiveDialog.Title>
               </PrimitiveDialog.Header>
               <PrimitiveDialog.Body>
-                <AddPlayerForm contentRef={contentRef} />
+                <AddPlayerForm
+                  contentRef={contentRef}
+                  onSubmitSuccess={() => setOpen(false)}
+                />
               </PrimitiveDialog.Body>
               <PrimitiveDialog.CloseTrigger asChild>
                 <CloseButton size="sm" />

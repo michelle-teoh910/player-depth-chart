@@ -5,14 +5,13 @@ import {
   Input,
   Stack,
 } from '@chakra-ui/react';
-import { type RefObject } from 'react';
+import { useTransition, type RefObject } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-
-import DropdownSelect from '../../ui/select';
 
 import { useAppDispatch, useAppSelector } from '../../../store/hook';
 import { addPlayer } from '../../../store/slices/sports';
 
+import DropdownSelect from '../../ui/select';
 import { LINEUP_SPOTS } from '../../../utility/constants';
 
 interface FormValues {
@@ -26,9 +25,13 @@ type Option = { label: string; value: string };
 
 export function AddPlayerForm({
   contentRef,
+  onSubmitSuccess,
 }: {
   contentRef: RefObject<HTMLElement | null>;
+  onSubmitSuccess: () => void;
 }) {
+  const [isPending, startTransition] = useTransition();
+
   const sports = useAppSelector((state) => state.sports.sports);
   const dispatch = useAppDispatch();
 
@@ -44,10 +47,11 @@ export function AddPlayerForm({
   const selectedSport = form.watch('sport');
 
   const sportOptions: { items: Option[] } = createListCollection({
-    items: sports.map((sport) => ({
-      label: sport.name,
-      value: sport.name,
-    })),
+    items:
+      sports.map((sport) => ({
+        label: sport.name,
+        value: sport.name,
+      })) || [],
   });
 
   const selectedSportData = sports.find(
@@ -63,14 +67,18 @@ export function AddPlayerForm({
   });
 
   const onSubmit = handleSubmit((data) => {
-    dispatch(
-      addPlayer({
-        sportName: data.sport,
-        positionName: data.position,
-        spot: data.spot,
-        playerName: data.playerName,
-      })
-    );
+    startTransition(() => {
+      dispatch(
+        addPlayer({
+          sportName: data.sport,
+          positionName: data.position,
+          spot: data.spot,
+          playerName: data.playerName,
+        })
+      );
+
+      onSubmitSuccess();
+    });
   });
 
   return (
@@ -151,7 +159,9 @@ export function AddPlayerForm({
           <Field.ErrorText>{errors.position?.message}</Field.ErrorText>
         </Field.Root>
 
-        <Button type="submit">Add Player</Button>
+        <Button type="submit" disabled={isPending} loading={isPending}>
+          Add Player
+        </Button>
       </Stack>
     </form>
   );
