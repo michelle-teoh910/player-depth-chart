@@ -51,7 +51,9 @@ const sportsSlice = createSlice({
       if (!position) return;
 
       position.spots.splice(
-        spotIndex ? Number(spotIndex) : position.spots.length - 1,
+        spotIndex
+          ? Number(spotIndex)
+          : Math.min(position.spots.length, MAX_PLAYERS - 1),
         0,
         playerName
       );
