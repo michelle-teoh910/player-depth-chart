@@ -146,8 +146,16 @@ export function AddPlayerForm({
               <Controller
                 control={control}
                 name="playerName"
-                rules={{ required: 'Player name is required' }}
-                render={({ field }) => <Input {...field} />}
+                rules={{
+                  required: 'Player name is required',
+                }}
+                render={({ field }) => (
+                  <Input
+                    {...field}
+                    // Disable browser native validation to allow custom error handling
+                    required={false}
+                  />
+                )}
               />
             </FormControl>
 
