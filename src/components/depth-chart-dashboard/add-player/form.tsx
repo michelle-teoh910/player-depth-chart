@@ -8,7 +8,7 @@ import { addPlayer } from '../../../store/slices/sports';
 import FormControl from '../../ui/form-control';
 import DropdownSelect from '../../ui/select';
 
-import { LINEUP_SPOTS } from '../../../utility/constants';
+import { LINEUP_SPOTS, MAX_PLAYERS } from '../../../utility/constants';
 
 interface FormValues {
   playerName: string;
@@ -60,6 +60,22 @@ export function AddPlayerForm({
         label: pos.name,
         value: pos.name,
       })) || [],
+  });
+
+  const selectedPositionData = selectedSportData?.position.find(
+    (pos) => pos.name === selectedPosition
+  );
+
+  const spotOptions = createListCollection({
+    items: LINEUP_SPOTS.map((spot, index) => {
+      return {
+        label: spot,
+        value: `${index}`,
+      };
+    }).slice(
+      0,
+      Math.min((selectedPositionData?.spots.length ?? 0) + 1, MAX_PLAYERS)
+    ),
   });
 
   const onSubmit = handleSubmit((data) => {
@@ -192,12 +208,3 @@ export function AddPlayerForm({
     </form>
   );
 }
-
-const spotOptions = createListCollection({
-  items: LINEUP_SPOTS.map((spot, index) => {
-    return {
-      label: spot,
-      value: `${index}`,
-    };
-  }),
-});
