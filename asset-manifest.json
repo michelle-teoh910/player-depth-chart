@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/player-depth-chart/static/css/main.b69bf417.css",
-    "main.js": "/player-depth-chart/static/js/main.23434090.js",
+    "main.js": "/player-depth-chart/static/js/main.19b6e1e4.js",
     "static/js/453.26541c07.chunk.js": "/player-depth-chart/static/js/453.26541c07.chunk.js",
     "index.html": "/player-depth-chart/index.html",
     "main.b69bf417.css.map": "/player-depth-chart/static/css/main.b69bf417.css.map",
-    "main.23434090.js.map": "/player-depth-chart/static/js/main.23434090.js.map",
+    "main.19b6e1e4.js.map": "/player-depth-chart/static/js/main.19b6e1e4.js.map",
     "453.26541c07.chunk.js.map": "/player-depth-chart/static/js/453.26541c07.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b69bf417.css",
-    "static/js/main.23434090.js"
+    "static/js/main.19b6e1e4.js"
   ]
 }
